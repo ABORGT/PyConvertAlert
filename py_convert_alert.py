@@ -51,11 +51,11 @@ class Converter(object):
             or json and can be passed either directly, or as a file.
 
         """
-        self._mapper = mapper
+        self.mapper = mapper
 
     def _check_for_labels(self):
         """
-        Return True if 'labels' key defined in self._mapper.
+        Return True if 'labels' key defined in self.mapper.
 
         Here, we ensure that the mapper object has the minimal structure
         required by Alert Manager.
@@ -69,7 +69,7 @@ class Converter(object):
 
         """
         check = True
-        if 'labels' not in self._mapper:
+        if 'labels' not in self.mapper:
             check = False
         return check
 
@@ -86,25 +86,25 @@ class Converter(object):
 
         Returns
         -------
-        self._mapper : str
+        self.mapper : str
             Json string representing our alert mapping.
 
 
         """
         try:
-            mapper_file = pathlib.Path(self._mapper)
+            mapper_file = pathlib.Path(self.mapper)
             if mapper_file.is_file():
-                with open(self._mapper, 'r') as f:
-                    self._mapper = json.load(f)
+                with open(self.mapper, 'r') as f:
+                    self.mapper = json.load(f)
         except (OSError, TypeError):
             pass
-        if not isinstance(self._mapper, dict):
-            raise TypeError("mapper must be dict {}==>{}".format(self._mapper,
-                                                                 type(self._mapper)))
+        if not isinstance(self.mapper, dict):
+            raise TypeError("mapper must be dict {}==>{}".format(self.mapper,
+                                                                 type(self.mapper)))
         if not self._check_for_labels():
             raise(MissingLabelsKey("mapper must contain 'labels' key at "
-                                   "outer most level: {}".format(self._mapper)))
-        return self._mapper
+                                   "outer most level: {}".format(self.mapper)))
+        return self.mapper
 
     def _verify_key_exists(self, key, lookup_dict):
         """
