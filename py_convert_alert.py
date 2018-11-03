@@ -12,6 +12,20 @@ import copy
 from nested_lookup import nested_lookup, get_occurrence_of_key
 
 
+class MissingLabelsKey(Exception):
+    """
+    Simple custom exception in case mapper doesn't meet minimum requirements.
+
+    We want to raise this error if the mapper attribute has no 'labels' key.
+    In order to POST an alert to alert manager, there at least must be a
+    'labels' key definition.
+
+
+    """
+
+    pass
+
+
 class Converter(object):
     """
     Library to easily convert alerts into Alert Manager compatible alerts.
@@ -39,9 +53,30 @@ class Converter(object):
         """
         self._mapper = mapper
 
+    def _check_for_labels(self):
+        """
+        Return True if 'labels' key defined in self._mapper.
+
+        Here, we ensure that the mapper object has the minimal structure
+        required by Alert Manager.
+
+        Returns
+        -------
+        check : boolean
+            check returns true or false after verifying whether or not the
+            'labels' key exists in the user provided mapper. Alert manager
+            alerts expect at least a labels key in order to POST.
+
+        """
+        check = True
+        if 'labels' not in self._mapper:
+            check = False
+        return check
+
     @property
     def mapping(self):
-        """Get our mapper object or looks for file containing map.
+        """
+        Get our mapper object or looks for file containing map.
 
         This property allows a bit of flexibility with how we specify our
         mapper. If the mapper is provided during instantiation, we roll with
@@ -66,6 +101,9 @@ class Converter(object):
         if not isinstance(self._mapper, dict):
             raise TypeError("mapper must be dict {}==>{}".format(self._mapper,
                                                                  type(self._mapper)))
+        if not self._check_for_labels():
+            raise(MissingLabelsKey("mapper must contain 'labels' key at "
+                                   "outer most level: {}".format(self._mapper)))
         return self._mapper
 
     def _verify_key_exists(self, key, lookup_dict):
