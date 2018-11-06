@@ -5,7 +5,7 @@ PyConvertAlert makes it easy to take an arbitrary alert from some kind of alerti
 
 ### Getting Started
 
-The latest stable release is available from PyPi:
+The latest stable release is available from PyPI:
 
 ```
 pip install pyconvertalert
@@ -92,6 +92,14 @@ Should be as simple as:
 ```
 python -m unittest test_py_convert_alert.py
 ```
+
+## Contributing
+1. Fork it.
+2. Create a branch describing either the issue or feature you're working.
+3. Making changes, committing along the way.
+4. Follow PEP8, except where ridiculous.
+5. Include tests for any functionality changes.
+6. Push the changes and create a pull request :D.
 
 ## Built With
 
