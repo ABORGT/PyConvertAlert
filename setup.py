@@ -21,7 +21,7 @@ URL = 'https://github.com/jpavlav/PyConvertAlert'
 EMAIL = 'jpavlav@gmail.com'
 AUTHOR = 'Justin Palmer'
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 PACKAGES = ['pyconvertalert']
 REQUIRED = [
     'six>=1.11.0',
