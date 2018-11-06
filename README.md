@@ -58,10 +58,6 @@ python -m unittest test_py_convert_alert.py
 
 * [Python3](https://www.python.org/downloads/) - Beautiful language.
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
 ## Authors
 
 * **Justin Palmer** - *Urrverything* - [Me](https://github.com/jpavlav)
