@@ -70,7 +70,8 @@ class TestConvertIt(unittest.TestCase):
         test_mapper_dict_2 = {
             "labels": {
                 "best_flower_name": ['best_flower', 'name'],
-                "best_flower_scientific_name": ['best_flower', 'scientific_name']
+                "best_flower_scientific_name": ['best_flower',
+                                                'scientific_name']
             }
         }
 
@@ -83,6 +84,7 @@ class TestConvertIt(unittest.TestCase):
             }
         }
         self.assertEqual(converted_2, check_converted_2)
+
 
 if __name__ == '__main__':
     unittest.main()

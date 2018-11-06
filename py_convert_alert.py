@@ -90,6 +90,15 @@ class Converter(object):
             Json string representing our alert mapping.
 
 
+        Raises
+        ------
+        TypeError
+            Raised if the mapper attribute is not a dict.
+
+        MissingLabelsKey
+            Raised if the mapper attribute does not contain the key 'labels'.
+
+
         """
         try:
             mapper_file = pathlib.Path(self.mapper)
@@ -99,11 +108,11 @@ class Converter(object):
         except (OSError, TypeError):
             pass
         if not isinstance(self.mapper, dict):
-            raise TypeError("mapper must be dict {}==>{}".format(self.mapper,
-                                                                 type(self.mapper)))
+            raise TypeError(f"mapper must be dict {self.mapper} ==> "
+                            f"{type(self.mapper)}")
         if not self._check_for_labels():
-            raise(MissingLabelsKey("mapper must contain 'labels' key at "
-                                   "outer most level: {}".format(self.mapper)))
+            raise(MissingLabelsKey(f"mapper must contain 'labels' key at "
+                                   f"outer most level: {self.mapper}"))
         return self.mapper
 
     def _verify_key_exists(self, key, lookup_dict):
