@@ -1,7 +1,7 @@
 import unittest
 
 
-from py_convert_alert import Converter
+from pyconvertalert import Converter
 
 
 class TestConvertIt(unittest.TestCase):
@@ -77,6 +77,7 @@ class TestConvertIt(unittest.TestCase):
 
         convert = Converter(mapper=test_mapper_dict_2)
         converted_2 = convert.convert_it(test_lookup_dict_2)
+        print(converted_2)
         check_converted_2 = {
             'labels': {
                 'best_flower_name': 'Orchid',
