@@ -5,7 +5,7 @@ PyConvertAlert makes it easy to take an arbitrary alert from some kind of alerti
 
 ### Getting Started
 
-The latest stable release is available from PyPi:
+The latest stable release is available from PyPI:
 
 ```
 pip install pyconvertalert
