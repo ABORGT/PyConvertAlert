@@ -1,7 +1,7 @@
 import unittest
 
 
-from py_convert_alert import Converter
+from pyconvertalert.py_convert_alert import Converter
 
 
 class TestConvertIt(unittest.TestCase):
