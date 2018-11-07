@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Note: To use the 'upload' functionality of this file, you must:
+# Note: To use the 'upload' functionality of this file, you must run:
 #   $ pip install twine
 
 # Thank you https://github.com/kennethreitz/setup.py
@@ -11,8 +11,7 @@ import io
 import os
 import sys
 from shutil import rmtree
-
-from setuptools import find_packages, setup, Command
+import setuptools
 
 # Package meta-data.
 NAME = 'pyconvertalert'
@@ -84,7 +83,7 @@ class UploadCommand(Command):
         sys.exit()
 
 
-setup(
+setuptools.setup(
     name=NAME,
     version=about['__version__'],
     description=DESCRIPTION,
