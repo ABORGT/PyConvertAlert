@@ -1,0 +1,16 @@
+sudo: required
+dist: xenial
+language: python
+python:
+- '3.6'
+- '3.7'
+install:
+- pip install -r requirements.txt
+script: python -m unittest tests/test_py_convert_alert.py
+deployment:
+  provider: pypi
+  user: jpavlav
+  password:
+    secure: nOQg6V9Vkj83NR08HtTFN9+Sj/H+VmdWEkWRSm8C5K2+olpn+X05XE1EEeTBl6eETwoJyyhhyZEoRPxCGw3spBLftFApK4de9SjhlWDNgeS06BWZZvb4N0ihTzIFIRhQgpOLpL8X54s2ltqTuVmnV2QNdHiyG6mqw6PGFkklMfemqg6301xOAZwHkd1KjvSpCVfzyP6RtfTJBY1u3eD/zQgrwrIORv2yaCCepHd0rBL5RYJ4oSDaTt8gw1yxs29XdHJz67+vQa78/xuKc7kwdVuohcyaHUfPwiKf6M37GqYxLmZN2PKUagkPqG0ZCLHPXYPMAfGX6wFFvrRhlfWHFID/tZLbXjK6MX1I+aF+hfadc8nGCLKapeDlyWLv9Ywta2GON4YhR5BsmW5so7+pr7/VsplUN8R+861HRzWATlH0/9UXSntqpIRcYv4hEzr2qN47W0xhhdo/eM3izMOC7AiClF+lcrQ+y2PypMHnuKKaN7ZKM7YYG6XVOuX/tZuPQmN7RCfbwFTwlaXRXTNMoIO/H1ImwcQIFKZI1u5ohP2BBoQt2eW9V+UqyJu/f77IFkk0IS4LF1Sn1lV4acU+rgCbpQHUGFMT+v1GvdtBQrAzn/K+SMOe2xqB2jZZnn8Aq98rjSX9d77MlU/NSHO3ghqYJN22L6TWU+P+RDVUlRo=
+    on:
+      tags: true
