@@ -98,6 +98,7 @@ setup(
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     include_package_data=True,
+    keywords=["pyconvertalert"],
     license='MIT',
     classifiers=[
         'License :: OSI Approved :: MIT License',
