@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ABORGT/PyConvertAlert.svg?branch=master)](https://travis-ci.org/ABORGT/PyConvertAlert)
+
 # PyConvertAlert
 
 PyConvertAlert makes it easy to take an arbitrary alert from some kind of alerting system (Uptime Robot, Rackspace Intelligence) and convert it into an Alert Manager (Prometheus) alert.
